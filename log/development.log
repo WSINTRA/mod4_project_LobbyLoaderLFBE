@@ -4825,3 +4825,7 @@ FOREIGN KEY ("user_id")
   ↳ /Users/beschwa/.rvm/rubies/ruby-2.6.3/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
   [1m[35m (136.8ms)[0m  [1m[35mDROP DATABASE IF EXISTS "game_party_api_test"[0m
   ↳ /Users/beschwa/.rvm/rubies/ruby-2.6.3/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (0.1ms)[0m  [1m[35mDROP DATABASE IF EXISTS "game_party_api_development"[0m
+  ↳ /Users/beschwa/.rvm/rubies/ruby-2.6.3/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
+  [1m[35m (0.1ms)[0m  [1m[35mDROP DATABASE IF EXISTS "game_party_api_test"[0m
+  ↳ /Users/beschwa/.rvm/rubies/ruby-2.6.3/lib/ruby/gems/2.6.0/gems/rake-12.3.2/lib/rake/task.rb:273
