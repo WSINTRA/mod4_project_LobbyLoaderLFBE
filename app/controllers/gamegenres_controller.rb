@@ -1,0 +1,2 @@
+class GamegenresController < ApplicationController
+end

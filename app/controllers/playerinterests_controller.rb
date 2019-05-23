@@ -1,0 +1,2 @@
+class PlayerinterestsController < ApplicationController
+end
