@@ -58,6 +58,7 @@ ActiveRecord::Schema.define(version: 2019_05_23_195101) do
   create_table "parties", force: :cascade do |t|
     t.string "name"
     t.integer "partysize"
+    t.text "description"
     t.bigint "user_id"
     t.bigint "game_id"
     t.datetime "created_at", null: false
