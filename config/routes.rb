@@ -1,3 +1,20 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  resources :websites
+  resources :keywords
+  resources :gamescreenshots
+  resources :gamecovers
+  resources :gamemodes
+  resources :platforms
+  resources :messages
+  resources :partymembers
+  resources :parties
+  resources :gamegenres
+  resources :playerinterests
+  resources :ownedgames
+  resources :genres
+  resources :games
+  resources :users, only: [:create, :update]
+      post '/login', to: 'auth#create'
+      get '/profile', to: 'users#profile'
+      patch '/update', to: 'users#update'
 end

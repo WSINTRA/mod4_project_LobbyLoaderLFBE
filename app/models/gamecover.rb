@@ -1,0 +1,2 @@
+class Gamecover < ApplicationRecord
+end

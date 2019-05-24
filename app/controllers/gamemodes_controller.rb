@@ -1,0 +1,2 @@
+class GamemodesController < ApplicationController
+end
