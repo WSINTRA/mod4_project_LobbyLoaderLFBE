@@ -1,2 +1,0 @@
-class GamescreenshotsController < ApplicationController
-end

@@ -1,2 +1,0 @@
-class Gamescreenshot < ApplicationRecord
-end

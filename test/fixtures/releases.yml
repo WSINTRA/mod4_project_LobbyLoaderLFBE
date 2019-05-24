@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  date: MyString
+  game: one
+  platform: one
+
+two:
+  date: MyString
+  game: two
+  platform: two

@@ -1,9 +1,12 @@
 Rails.application.routes.draw do
+  resources :coverimages
+  resources :screenshots
+  resources :gamekeywords
+  resources :releases
+  resources :gamemodes
+  resources :modes
   resources :websites
   resources :keywords
-  resources :gamescreenshots
-  resources :gamecovers
-  resources :gamemodes
   resources :platforms
   resources :messages
   resources :partymembers

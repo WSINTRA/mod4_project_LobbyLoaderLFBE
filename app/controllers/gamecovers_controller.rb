@@ -1,2 +1,0 @@
-class GamecoversController < ApplicationController
-end

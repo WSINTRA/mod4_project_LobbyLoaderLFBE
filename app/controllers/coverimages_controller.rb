@@ -1,0 +1,2 @@
+class CoverimagesController < ApplicationController
+end
