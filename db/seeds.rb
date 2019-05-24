@@ -117,30 +117,35 @@ while offset <= 150  do
 end
 
 
+
 game_field = "fields *, screenshots.*, genres.name, cover.*, player_perspectives.*, websites.*, game_modes.*, age_ratings.*, keywords.*, platforms.*, release_dates.*; "
 
 Genre.all.each do |genre|
-	request = Net::HTTP::Get.new(URI('https://api-v3.igdb.com/games'), {'user-key' => 'b01a54f483243e112f091be108505cce'})
-	request.body = game_field + "sort popularity desc; limit 50; where genres = (#{genre.id});"
-	all_games_for_current_genre = JSON.parse(http.request(request).body)
-	all_games_for_current_genre.each do |game_from_db|
-		game = Game.create(name: game_from_db["name"], summary: game_from_db["summary"], slug_name: game_from_db["slug"])
-		if(!game_from_db["keywords"].nil?)
-			Keyword.createKeyword(game_from_db["keywords"])
-			game.add_keywords(game_from_db["keywords"])
-		end
-		if(!game_from_db["game_modes"].nil?)
-			Mode.createMode(game_from_db["game_modes"])
-			game.add_modes(game_from_db["game_modes"])
-		end
+	offset = 0
+	while offset <= 150  do
+		request = Net::HTTP::Get.new(URI('https://api-v3.igdb.com/games'), {'user-key' => 'b01a54f483243e112f091be108505cce'})
+		request.body = game_field + "sort popularity desc; limit 50; offset #{offset}; where genres = (#{genre.id});"
+		all_games_for_current_genre = JSON.parse(http.request(request).body)
+		all_games_for_current_genre.each do |game_from_db|
+			game = Game.create(name: game_from_db["name"], summary: game_from_db["summary"], slug_name: game_from_db["slug"])
+			if(!game_from_db["keywords"].nil?)
+				Keyword.createKeyword(game_from_db["keywords"])
+				game.add_keywords(game_from_db["keywords"])
+			end
+			if(!game_from_db["game_modes"].nil?)
+				Mode.createMode(game_from_db["game_modes"])
+				game.add_modes(game_from_db["game_modes"])
+			end
 
-		game_from_db["websites"].nil? ? () : game.add_websites(game_from_db["websites"])
-		game_from_db["screenshots"].nil? ? () : game.add_screenshots(game_from_db["screenshots"])
-		game_from_db["cover"].nil? ? () : game.add_coverimage(game_from_db["cover"])
-		game_from_db["release_dates"].nil? ? () : game.add_releases(game_from_db["release_dates"])
-		game_from_db["genres"].nil? ? () : game.add_genres(game_from_db["genres"])
+			game_from_db["websites"].nil? ? () : game.add_websites(game_from_db["websites"])
+			game_from_db["screenshots"].nil? ? () : game.add_screenshots(game_from_db["screenshots"])
+			game_from_db["cover"].nil? ? () : game.add_coverimage(game_from_db["cover"])
+			game_from_db["release_dates"].nil? ? () : game.add_releases(game_from_db["release_dates"])
+			game_from_db["genres"].nil? ? () : game.add_genres(game_from_db["genres"])
+		end
+		offset += 50
 	end
-
+	puts "Finished requesting genre #{genre.name}"
 end
 
 
