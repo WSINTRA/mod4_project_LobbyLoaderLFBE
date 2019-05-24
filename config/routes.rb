@@ -1,4 +1,10 @@
 Rails.application.routes.draw do
+  resources :websites
+  resources :keywords
+  resources :gamescreenshots
+  resources :gamecovers
+  resources :gamemodes
+  resources :platforms
   resources :messages
   resources :partymembers
   resources :parties

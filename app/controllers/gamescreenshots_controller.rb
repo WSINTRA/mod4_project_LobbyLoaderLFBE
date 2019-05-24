@@ -1,0 +1,2 @@
+class GamescreenshotsController < ApplicationController
+end

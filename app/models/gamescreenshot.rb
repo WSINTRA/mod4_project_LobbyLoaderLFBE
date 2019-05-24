@@ -1,0 +1,2 @@
+class Gamescreenshot < ApplicationRecord
+end
