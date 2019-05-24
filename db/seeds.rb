@@ -22,9 +22,10 @@ require 'net/https'
 # mmo = Genre.create(name:"MMO")
 # strategy = Genre.create(name:"Strategy")
 
-mikey = User.create(username: "Mikey", email: "none", password: "bla")
-will = User.create(username: "Will", email: "none", password: "bla")
-dan = User.create(username: "Dan", email: "none", password: "bla")
+
+# mikey = User.create(username: "Mikey", email: "none", password: "bla")
+# will = User.create(username: "Will", email: "none", password: "bla")
+# dan = User.create(username: "Dan", email: "none", password: "bla")
 
 # party_one = Party.create(user: mikey, game: league, name: "mikey's party", partysize: 5)
 # party_two = Party.create(user: will, game: counterstrike, name: "will's party", partysize: 6)
