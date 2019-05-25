@@ -122,7 +122,7 @@ game_field = "fields *, screenshots.*, genres.name, cover.*, player_perspectives
 
 Genre.all.each do |genre|
 	offset = 0
-	while offset <= 150  do
+	# while offset <= 150  do
 		request = Net::HTTP::Get.new(URI('https://api-v3.igdb.com/games'), {'user-key' => 'b01a54f483243e112f091be108505cce'})
 		request.body = game_field + "sort popularity desc; limit 50; offset #{offset}; where genres = (#{genre.id});"
 		all_games_for_current_genre = JSON.parse(http.request(request).body)
@@ -142,8 +142,8 @@ Genre.all.each do |genre|
 			game_from_db["cover"].nil? ? () : game.add_coverimage(game_from_db["cover"])
 			game_from_db["release_dates"].nil? ? () : game.add_releases(game_from_db["release_dates"])
 			game_from_db["genres"].nil? ? () : game.add_genres(game_from_db["genres"])
-		end
-		offset += 50
+		# end
+		# offset += 50
 	end
 	puts "Finished requesting genre #{genre.name}"
 end
