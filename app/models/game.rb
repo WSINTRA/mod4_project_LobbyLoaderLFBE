@@ -31,7 +31,7 @@ class Game < ApplicationRecord
 	def add_coverimage (cover)
 		front_of_url = "https://images.igdb.com/igdb/image/upload/t_"
 		end_of_url = ".jpg"
-		Coverimage.create(original_url: front_of_url+"original/"+cover["image_id"]+end_of_url, large_url: front_of_url+"720p/"+cover["image_id"]+end_of_url, image_id: cover["image_id"], game: self)
+		Coverimage.create(original_url: front_of_url+"original/"+"#{cover["image_id"]}"+end_of_url, large_url: front_of_url+"720p/"+"#{cover["image_id"]}"+end_of_url, image_id: "#{cover["image_id"]}", game: self)
 	end
 
 	def add_releases (release_date_array)
