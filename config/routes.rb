@@ -15,9 +15,11 @@ Rails.application.routes.draw do
   resources :playerinterests
   resources :ownedgames
   resources :genres
-  resources :games
+  resources :games, only: [:index]
   resources :users, only: [:create, :update]
       post '/login', to: 'auth#create'
       get '/profile', to: 'users#profile'
       patch '/update', to: 'users#update'
+      patch '/addGame', to: 'users#addGame'
+      patch '/removeGame', to: 'users#removeGame'
 end

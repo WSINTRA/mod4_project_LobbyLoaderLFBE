@@ -22,6 +22,20 @@ class UsersController < ApplicationController
     @user.update(update_params)
     render json: @user
   end
+
+  def addGame
+    user = User.find(params[:user][:id])
+    game = Game.find(params[:game][:id])
+    user.games << game
+    render json: user
+  end
+
+  def removeGame
+     user = User.find(params[:user][:id])
+    game = Game.find(params[:game][:id])
+    user.games.delete(game.id)
+    render json: user
+  end
  
   private
  
