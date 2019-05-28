@@ -5,7 +5,7 @@ class Party < ApplicationRecord
 
   has_many :messages
 
-  has_many :partymembers
+  has_many :partymembers, :dependent => :delete_all
   has_many :users, through: :partymembers
 
 end
