@@ -12,4 +12,6 @@ has_many :messages
 
 	has_many :partymembers
 	has_many :parties, through: :partymembers
+
+	has_many :games, through: :owned_parties
 end
