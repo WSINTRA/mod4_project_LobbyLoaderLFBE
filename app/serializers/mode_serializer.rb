@@ -1,3 +1,3 @@
 class ModeSerializer < ActiveModel::Serializer
-  attributes :id, :name, :slug_name
+  attributes :id, :name
 end
