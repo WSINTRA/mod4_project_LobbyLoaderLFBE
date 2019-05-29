@@ -3,4 +3,5 @@ class PartySerializer < ActiveModel::Serializer
   has_one :user
   has_one :game
   has_many :users
+  has_many :messages
 end

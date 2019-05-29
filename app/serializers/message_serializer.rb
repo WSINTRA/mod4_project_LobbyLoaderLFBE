@@ -1,5 +1,5 @@
 class MessageSerializer < ActiveModel::Serializer
-  attributes :content
-  has_one :user
-  has_one :chat
+  attributes :id, :content, :user
+  has_one :party
+  belongs_to :user
 end

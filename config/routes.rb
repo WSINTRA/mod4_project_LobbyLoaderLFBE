@@ -13,13 +13,14 @@ Rails.application.routes.draw do
   patch '/addUser', to: 'partymembers#create'
   patch '/removeUser', to: 'partymembers#leaveParty'
   resources :parties, only: [:create, :index, :update]
+      patch '/addMessage', to: 'parties#addMessage'
 
   resources :gamegenres
   resources :playerinterests
   resources :ownedgames
   resources :genres
   resources :games, only: [:index,]
-  resources :users, only: [:create, :update]
+  resources :users, only: [:create, :update, :show]
       post '/login', to: 'auth#create'
       get '/profile', to: 'users#profile'
       patch '/update', to: 'users#update'

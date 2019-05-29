@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
 
-  skip_before_action :authorized, only: [:create]
+  skip_before_action :authorized, only: [:create, :show]
   before_action :find_user, only: [:update]
 
    def profile
@@ -21,6 +21,11 @@ class UsersController < ApplicationController
   def update
     @user.update(update_params)
     render json: @user
+  end
+
+  def show
+    user = User.find(params[:id])
+    render json: user
   end
 
   def addGame
