@@ -1,6 +1,8 @@
 class Game < ApplicationRecord
 
 	has_many :parties
+	has_many :users, through: :parties
+	
 	has_many :coverimages
 	has_many :screenshots
 	has_many :websites
