@@ -14,6 +14,10 @@ skip_before_action :authorized, only: [:index]
 		render json: all
 	end
 
+	def addMessage
+		message = Message.create(party_id: params[:content][:party_id], user_id: params[:content][:user_id], content: params[:content][:content])
+		render json: message
+	end
 
 
 
