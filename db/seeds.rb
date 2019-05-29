@@ -3,7 +3,8 @@ require 'net/https'
 
 # Game.destroy_all
 # Genre.destroy_all
-
+# User.destroy_all
+# Party.destroy_all
 # league = Game.create(name:"League of Legends")
 # overwatch = Game.create(name:"Overwatch")
 # counterstrike = Game.create(name:"Counterstrike 1.6")
