@@ -126,7 +126,7 @@ Genre.all.each do |genre|
 	limit = 10 #change to 50 for more 
 	# while offset <= 150  do
 		request = Net::HTTP::Get.new(URI('https://api-v3.igdb.com/games'), {'user-key' => 'b01a54f483243e112f091be108505cce'})
-		request.body = game_field + "sort popularity desc; limit #{limit}; offset #{offset}; where genres = (#{genre.id});"
+		request.body = game_field + "sort total_rating desc; limit #{limit}; offset #{offset}; where genres = (#{genre.id});"
 		all_games_for_current_genre = JSON.parse(http.request(request).body)
 		all_games_for_current_genre.each do |game_from_db|
 			game = Game.create(name: game_from_db["name"], summary: game_from_db["summary"], slug_name: game_from_db["slug"])
